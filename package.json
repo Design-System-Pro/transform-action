@@ -1,5 +1,6 @@
 {
   "name": "token-transform-action",
+  "type": "module",
   "version": "1.0.0",
   "description": "GitHub Action to transform design tokens using Style Dictionary",
   "main": "dist/index.js",

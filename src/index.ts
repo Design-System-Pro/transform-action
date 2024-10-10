@@ -9,7 +9,7 @@ async function run(): Promise<void> {
     core.debug(`Running transformation on ${tokenPath}`);
 
     const styleDictionary = new StyleDictionary({
-      source: [tokenPath],
+      source: [`${tokenPath}/**/*.json`],
       platforms: {
         css: {
           transformGroup: "css",

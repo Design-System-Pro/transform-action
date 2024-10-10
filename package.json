@@ -12,7 +12,6 @@
     "design-tokens",
     "style-dictionary"
   ],
-  "author": "Your Name",
   "license": "AGPL-3.0",
   "dependencies": {
     "@actions/core": "^1.11.1",

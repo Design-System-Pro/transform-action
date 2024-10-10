@@ -1,0 +1,14 @@
+name: 'Token Transform Action'
+description: 'Transform design tokens using Style Dictionary'
+inputs:
+  token-path:
+    description: 'Path to the tokens.json file'
+    required: true
+    default: 'tokens.json'
+  output-path:
+    description: 'Path to output the transformed tokens'
+    required: true
+    default: 'dist'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

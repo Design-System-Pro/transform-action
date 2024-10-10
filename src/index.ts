@@ -6,6 +6,8 @@ async function run(): Promise<void> {
     const tokenPath = core.getInput("token-path");
     const outputPath = core.getInput("output-path");
 
+    core.debug(`Running transformation on ${tokenPath}`);
+
     const styleDictionary = new StyleDictionary({
       source: [tokenPath],
       platforms: {
@@ -22,11 +24,15 @@ async function run(): Promise<void> {
       },
     });
 
+    core.debug("Initializing Style Dictionary");
     await styleDictionary.hasInitialized;
 
+    core.debug("Cleaning platforms");
     await styleDictionary.cleanAllPlatforms();
+    core.debug("Building platforms");
     await styleDictionary.buildAllPlatforms();
 
+    core.debug("Done");
     core.setOutput("output-path", outputPath);
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);

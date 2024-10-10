@@ -1,4 +1,4 @@
-name: 'Token Transform Action'
+name: 'DS Pro - Transform Design Tokens'
 description: 'Transform design tokens using Style Dictionary'
 inputs:
   token-path:

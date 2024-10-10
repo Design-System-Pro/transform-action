@@ -4,7 +4,7 @@
   "description": "GitHub Action to transform design tokens using Style Dictionary",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build src/index.ts"
+    "build": "tsc && ncc build src/index.ts --minify --source-map"
   },
   "keywords": [
     "github-action",
@@ -19,6 +19,7 @@
     "style-dictionary": "^4.0.1"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
     "@types/node": "^18.15.11",
     "@vercel/ncc": "^0.36.1",
     "typescript": "^5.0.3"

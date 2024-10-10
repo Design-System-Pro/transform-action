@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "GitHub Action to transform design tokens using Style Dictionary",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "scripts": {
     "build": "tsc && ncc build src/index.ts --minify --source-map"
   },

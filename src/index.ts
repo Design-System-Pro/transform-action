@@ -1,12 +1,12 @@
 import * as core from "@actions/core";
-import * as StyleDictionary from "style-dictionary";
+import StyleDictionary from "style-dictionary";
 
 async function run(): Promise<void> {
   try {
     const tokenPath = core.getInput("token-path");
     const outputPath = core.getInput("output-path");
 
-    const styleDictionary = StyleDictionary.extend({
+    const styleDictionary = new StyleDictionary({
       source: [tokenPath],
       platforms: {
         css: {
@@ -19,30 +19,13 @@ async function run(): Promise<void> {
             },
           ],
         },
-        scss: {
-          transformGroup: "scss",
-          buildPath: `${outputPath}/`,
-          files: [
-            {
-              destination: "variables.scss",
-              format: "scss/variables",
-            },
-          ],
-        },
-        js: {
-          transformGroup: "js",
-          buildPath: `${outputPath}/`,
-          files: [
-            {
-              destination: "variables.js",
-              format: "javascript/es6",
-            },
-          ],
-        },
       },
     });
 
-    styleDictionary.buildAllPlatforms();
+    await styleDictionary.hasInitialized;
+
+    await styleDictionary.cleanAllPlatforms();
+    await styleDictionary.buildAllPlatforms();
 
     core.setOutput("output-path", outputPath);
   } catch (error) {

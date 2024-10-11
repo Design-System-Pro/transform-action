@@ -1,10 +1,12 @@
 import * as core from "@actions/core";
 import StyleDictionary from "style-dictionary";
+import * as nodefs from "fs";
+import * as path from "path";
 
 async function run(): Promise<void> {
   try {
-    const tokensPath = core.getInput("tokens-path");
-    const outputPath = core.getInput("output-path");
+    const tokensPath = core.getInput("tokens-path") || "./tokens";
+    const outputPath = core.getInput("output-path") || "./lib";
 
     core.debug(`Running transformation on ${tokensPath}`);
 
@@ -24,12 +26,14 @@ async function run(): Promise<void> {
       },
     });
 
+    styleDictionary.log.verbosity = "verbose";
+
     core.debug("Initializing Style Dictionary");
     await styleDictionary.hasInitialized;
 
     core.debug("Cleaning platforms");
     await styleDictionary.cleanAllPlatforms();
-    core.debug("Building platforms");
+    core.debug(`Building platforms to ${outputPath}`);
     await styleDictionary.buildAllPlatforms();
 
     core.debug("Done");

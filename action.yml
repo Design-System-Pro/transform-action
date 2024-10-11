@@ -2,13 +2,13 @@ name: 'DS Pro - Transform Design Tokens'
 description: 'Transform design tokens using Style Dictionary'
 inputs:
   tokens-path:
-    description: 'Path to the tokens.json file'
+    description: 'Path to the tokens.json file. Defaults to repo root.'
     required: true
-    default: ''
+    default: './tokens'
   output-path:
     description: 'Path to output the transformed tokens'
     required: true
-    default: 'dist'
+    default: './lib'
 runs:
   using: 'node20'
   main: 'dist/index.js'

@@ -1,26 +1,21 @@
-name: 🚀 Release
+name: 🧪 Test
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
-
-permissions:
-  packages: write
-  contents: write
-  pull-requests: write
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  release:
-    name: Release
+  test:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout Repo
+      - name: Enable debug logging
+        run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Enable Corepack
         run: corepack enable
@@ -37,7 +32,5 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm semantic-release
+      - name: Run GitHub Action
+        uses: ./

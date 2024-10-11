@@ -5,6 +5,7 @@
   "description": "GitHub Action to transform design tokens using Style Dictionary",
   "main": "dist/index.cjs",
   "scripts": {
+    "start": "ncc run src/index.ts",
     "build": "tsc && ncc build src/index.ts --minify --source-map"
   },
   "keywords": [

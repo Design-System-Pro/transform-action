@@ -1,10 +1,10 @@
 name: 'DS Pro - Transform Design Tokens'
 description: 'Transform design tokens using Style Dictionary'
 inputs:
-  token-path:
+  tokens-path:
     description: 'Path to the tokens.json file'
     required: true
-    default: 'tokens.json'
+    default: ''
   output-path:
     description: 'Path to output the transformed tokens'
     required: true

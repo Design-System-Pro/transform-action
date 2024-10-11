@@ -3,13 +3,13 @@ import StyleDictionary from "style-dictionary";
 
 async function run(): Promise<void> {
   try {
-    const tokenPath = core.getInput("token-path");
+    const tokensPath = core.getInput("tokens-path");
     const outputPath = core.getInput("output-path");
 
-    core.debug(`Running transformation on ${tokenPath}`);
+    core.debug(`Running transformation on ${tokensPath}`);
 
     const styleDictionary = new StyleDictionary({
-      source: [`${tokenPath}/**/*.json`],
+      source: [`${tokensPath}/**/*.json`],
       platforms: {
         css: {
           transformGroup: "css",

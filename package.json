@@ -1,6 +1,5 @@
 {
   "name": "token-transform-action",
-  "type": "module",
   "version": "1.0.0",
   "description": "GitHub Action to transform design tokens using Style Dictionary",
   "main": "dist/index.cjs",
@@ -11,13 +10,15 @@
   "keywords": [
     "github-action",
     "design-tokens",
-    "style-dictionary"
+    "terrazzo"
   ],
   "license": "AGPL-3.0",
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^5.1.1",
-    "style-dictionary": "^4.0.1"
+    "@terrazzo/cli": "^0.0.19",
+    "@terrazzo/parser": "^0.0.19",
+    "@terrazzo/plugin-css": "^0.0.11"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

@@ -1,7 +1,7 @@
 {
-  "name": "token-transform-action",
-  "version": "1.0.0",
-  "description": "GitHub Action to transform design tokens using Style Dictionary",
+  "name": "transform",
+  "version": "0.0.0",
+  "description": "GitHub Action to transform design tokens using Terrazzo",
   "main": "dist/index.cjs",
   "scripts": {
     "start": "ncc run src/index.ts",

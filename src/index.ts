@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 import { parse, build, Logger } from "@terrazzo/parser";
 import { defineConfig } from "@terrazzo/cli";
-import { readFileSync, writeFileSync, mkdirSync } from "fs";
+import { readFileSync, writeFileSync, mkdirSync, copyFile } from "fs";
 import { dirname } from "path";
 import pluginCSS from "@terrazzo/plugin-css";
 
@@ -55,6 +55,17 @@ async function run(): Promise<void> {
 
       core.info(`Wrote ${filePath}`);
     });
+
+    copyFile(
+      `${tokensPath}/tokens.json`,
+      `${outputPath}/tokens.json`,
+      (err) => {
+        if (err) throw err;
+        core.info(
+          `Copied ${tokensPath}/tokens.json to ${outputPath}/tokens.json`
+        );
+      }
+    );
 
     core.debug("Done");
   } catch (error) {
